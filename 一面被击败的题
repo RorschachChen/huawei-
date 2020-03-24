@@ -5,6 +5,12 @@ res = 50
 while res>=1:
     tmp = []
     for i in range(start, start+res):
+    
+        # 此bug由我最好的大学朋友西尧发现并提出
+        if i==start+res-1 and len(tmp)==0:
+            tmp.append(arr[i-start])
+            break
+            
         if '7' not in str(i) and i%7!=0:
             tmp.append(arr[i-start])
     start += res
